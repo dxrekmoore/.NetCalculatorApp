@@ -22,8 +22,8 @@ namespace CalculatorApp
         public bool num1 = true;
         public bool num2 = false;
 
-        public string numb1;
-        public string numb2;
+        public string numb1 = "";
+        public string numb2 = "";
 
         public bool AddF = false;
         public bool SubF = false;
@@ -325,15 +325,18 @@ namespace CalculatorApp
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            if (num1)
+            if (numb1 != "")
             {
-                numb1 = numb1.Substring(0, numb1.Length - 1);
-                calcView.Text = numb1;
-            }
-            else
-            {
-                numb2 = numb2.Substring(0, numb2.Length - 1);
-                calcView.Text = numb2;
+                if (num1)
+                {
+                    numb1 = numb1.Substring(0, numb1.Length - 1);
+                    calcView.Text = numb1;
+                }
+                else
+                {
+                    numb2 = numb2.Substring(0, numb2.Length - 1);
+                    calcView.Text = numb2;
+                }
             }
         }
     }
