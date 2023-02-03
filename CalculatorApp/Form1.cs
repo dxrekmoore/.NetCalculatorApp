@@ -30,6 +30,7 @@ namespace CalculatorApp
         public bool MultF = false;
         public bool DivF = false;
 
+        //Answer values
         double ans = 0;
         double prevAns = 0;
 
@@ -224,6 +225,10 @@ namespace CalculatorApp
             //previous answer = ans.
             prevAns = ans;
 
+            //reset flags
+            num1 = true; num2 = false;
+            numb1 = numb2 = "";
+
         }
 
         private void Add_Click(object sender, EventArgs e)
@@ -314,6 +319,20 @@ namespace CalculatorApp
             else
             {
                 numb2 += ".";
+                calcView.Text = numb2;
+            }
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            if (num1)
+            {
+                numb1 = numb1.Substring(0, numb1.Length - 1);
+                calcView.Text = numb1;
+            }
+            else
+            {
+                numb2 = numb2.Substring(0, numb2.Length - 1);
                 calcView.Text = numb2;
             }
         }
